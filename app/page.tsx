@@ -14,22 +14,6 @@ export default function Home() {
   //   }
   // }, [session, router]);
 
-
-  useEffect(() => {
-    const enableFullscreen = () => {
-      if (document.documentElement.requestFullscreen) {
-        if (
-          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
-        ) {
-          document.documentElement.requestFullscreen();
-        }
-      }
-    };
-
-
-    enableFullscreen();
-  }, []);
-
   return (
     <main className="bg-[var(--secondary)] w-screen h-screen items-center p-6 flex flex-col justify-around">
       <Image
