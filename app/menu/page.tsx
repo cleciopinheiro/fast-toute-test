@@ -6,7 +6,6 @@ import { FaCamera } from 'react-icons/fa6';
 import { UploadButton } from '../utils/uploadthings';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import Loading from '../components/Loading';
 
 function Page() {
@@ -15,7 +14,6 @@ function Page() {
   const [isActive, setIsActive] = useState(true);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const supabaseClient = useSupabaseClient();
 
   const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -36,7 +34,6 @@ function Page() {
     localStorage.removeItem('token');
     localStorage.removeItem('routeData');
     localStorage.removeItem('data');
-    await supabaseClient.auth.signOut();
     router.push('/');
   };
 
