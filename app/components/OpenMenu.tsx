@@ -17,10 +17,13 @@ function OpenMenu({ open, onClick, onBadge }: OpenMenuProps) {
         image: '',
         name: '',
     });
+    const [image, setImage] = useState('' as string);
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('name') || '{}');
+        const imageUpload = JSON.parse(localStorage.getItem('image') || '{}');
         setData(data);
+        setImage(imageUpload);
     }, []);
 
     return (
@@ -38,7 +41,7 @@ function OpenMenu({ open, onClick, onBadge }: OpenMenuProps) {
                     <IoClose onClick={ onClick } size={28} className="text-white m-4 absolute" />
                     <div className="flex flex-col gap-2 w-full items-center justify-center py-4" onClick={ onBadge }>
                         {/* <Image src={data.image} alt="logo" width={60} height={60} className="rounded-full border-2 border-[var(--fourth)]" /> */}
-                        <div style={{backgroundImage: `url(${data.image})` }} className='bg-cover bg-center bg-no-repeat w-[60px] h-[60px] rounded-full border-2 border-[var(--fourth)]'></div>
+                        <div style={{backgroundImage: `url(${image})` }} className='bg-cover bg-center bg-no-repeat w-[60px] h-[60px] rounded-full border-2 border-[var(--fourth)]'></div>
                         <h2>{data.name}</h2>
                     </div>
                 </div>

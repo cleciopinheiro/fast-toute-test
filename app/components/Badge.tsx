@@ -20,11 +20,14 @@ function Badge({ onBadge, open }: BadgeProps) {
         image: '',
         name: '',
     })
+    const [image, setImage] = useState('' as string);
     const route = useRouter();
 
     useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('data') || '{}');
+        const data = JSON.parse(localStorage.getItem('name') || '{}');
+        const imageUpload = JSON.parse(localStorage.getItem('image') || '{}');
         setData(data);
+        setImage(imageUpload);
     }
     , []);
 
@@ -51,8 +54,8 @@ function Badge({ onBadge, open }: BadgeProps) {
                     <IoIosArrowDown size={32} className="absolute right-4" />
                 </div>
                 <div className="flex flex-col items-center mt-4 gap-2">
-                    {/* <Image src={data.image} width={300} height={300} alt="badge" className="rounded-full border-4 border-gray-300" /> */}
-                    <div style={{backgroundImage: `url(${data.image})` }} className='bg-cover bg-center bg-no-repeat w-[300px] h-[300px] rounded-full border-4 border-gray-300'></div>
+                    {/* <Image src={image} width={300} height={300} alt="badge" className="rounded-full border-4 border-gray-300" /> */}
+                    <div style={{backgroundImage: `url(${image})` }} className='bg-cover bg-center bg-no-repeat w-[300px] h-[300px] rounded-full border-4 border-gray-300'></div>
                     <h1 className="text-3xl mt-4 text-black">{data.name}</h1>
                     <p className="bg-[var(--fourth)] text-xl">ON DUTY</p>
                     <p className="text-black">{mounth} {year}, {date}</p>

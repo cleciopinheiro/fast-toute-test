@@ -3,29 +3,39 @@ import Image from 'next/image';
 import { MdAccountCircle } from 'react-icons/md';
 import { FiLogOut } from 'react-icons/fi';
 import { FaCamera } from 'react-icons/fa6';
-import { UploadButton } from '../utils/uploadthings';
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
 import Loading from '../components/Loading';
 
 function Page() {
   const [name, setName] = useState('');
-  const [image, setImage] = useState('');
+  const [image, setImage] = useState(null as string | null);
   const [isActive, setIsActive] = useState(true);
   const [loading, setLoading] = useState(false);
   const router = useRouter();
-  const supabaseClient = useSupabaseClient();
 
   const handlechange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
+  const handleUpload = (event: any) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      setImage(reader.result as string);
+    };
+
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = (e: React.FormEvent<HTMLButtonElement>) => {
     setLoading(true);
-
     setTimeout(() => {
       localStorage.setItem('name', JSON.stringify({ name, image }));
+      localStorage.setItem('image', JSON.stringify(image));
       setLoading(false);
       router.push('/route');
     }, 1000);
@@ -36,7 +46,6 @@ function Page() {
     localStorage.removeItem('token');
     localStorage.removeItem('routeData');
     localStorage.removeItem('data');
-    await supabaseClient.auth.signOut();
     router.push('/');
   };
 
@@ -80,17 +89,8 @@ function Page() {
                 <MdAccountCircle size={240} className="text-[#464646]" />
               )}
             </div>
-            <UploadButton
-              className="opacity-0 absolute"
-              endpoint="imageUploader"
-              onClientUploadComplete={(res) => {
-                setImage(res[0].url);
-              }}
-              onUploadError={(error: Error) => {
-                alert(`Limite máximo de upload atingido!`);
-              }}
-            />
-            <div className="bg-[var(--fourth)] rounded-full p-3 absolute bottom-0 right-2">
+           <input type="file" name="file" id="file" accept="image/*" onChange={ handleUpload } className='opacity-0' />
+            <div className="bg-[var(--fourth)] rounded-full p-3 absolute bottom-10 right-2">
               <FaCamera size={28} className="text-white" />
             </div>
           </label>
