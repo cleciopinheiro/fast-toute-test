@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #F8991B;
+  --secondary: #262626;
+  --thirth: #555b65;
+  --fourth: #ff7816;
+  --input-color: #141618;
+  --danger: #ff4d4f;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: white
+}
+
+.active {
+  @apply border-b-2 border-white;
+}
+
+.inactive {
+  @apply border-b-2 border-transparent;
+}
+
+.activefooter {
+  @apply text-[var(--primary)] font-semibold;
+}
+
+.inactivefooter {
+  @apply text-gray-500;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 28px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: 
+    radial-gradient(farthest-side,#ffffff 94%,#0000) top/8px 8px no-repeat,
+    conic-gradient(#0000 30%,#ffffff);
+  -webkit-mask: radial-gradient(farthest-side,#0000 calc(100% - 5px),#000 0);
+  animation: l13 1s infinite linear;
+}
+@keyframes l13{ 
+  100%{transform: rotate(1turn)}
+}
