@@ -24,7 +24,7 @@ function Badge({ onBadge, open }: BadgeProps) {
     const route = useRouter();
 
     useEffect(() => {
-        const data = JSON.parse(localStorage.getItem('data') || '{}');
+        const data = JSON.parse(localStorage.getItem('name') || '{}');
         const imageUpload = JSON.parse(localStorage.getItem('image') || '{}');
         setData(data);
         setImage(imageUpload);
