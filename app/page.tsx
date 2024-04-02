@@ -1,13 +1,11 @@
 'use client';
 import Image from 'next/image';
 import useAuthModal from '@/hooks/useAuthModal';
-import { useSessionContext } from '@supabase/auth-helpers-react';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const authModal = useAuthModal();
-  const { session } = useSessionContext();
   const router = useRouter();
 
   // useEffect(() => {
@@ -28,12 +26,9 @@ export default function Home() {
       }
     };
 
-    if (session) {
-      router.push('/menu');
-    }
 
     enableFullscreen();
-  }, [session, router]);
+  }, []);
 
   return (
     <main className="bg-[var(--secondary)] w-screen h-screen items-center p-6 flex flex-col justify-around">

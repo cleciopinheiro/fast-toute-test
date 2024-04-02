@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   description: "Your bestYour best route option",
 };
 
+
 export default function RootLayout({
   children,
 }: Readonly<{
