@@ -35,13 +35,11 @@ const Modal: React.FC<ModalProps> = ({
             justify-center
             py-10
             drop-shadow-md 
-            top-1/2
-            left-1/2
+            bottom-0
+            left-0
             w-full
-            h-full
-            max-h-full
-            translate-x-[-50%]
-            translate-y-[-50%]
+            ease-in
+            duration-300
             rounded-t-2xl
             bg-neutral-800 
             p-[25px] 
