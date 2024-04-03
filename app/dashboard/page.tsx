@@ -8,6 +8,7 @@ import YouDashboard from '../components/YouDashboard';
 function Page() {
     const [openMenu, setOpenMenu] = useState(false);
     const [openBadge, setOpenBadge] = useState(false);
+    const [animate, setAnimate] = useState(false);
 
     const handleMenu = () => {
         setOpenMenu(!openMenu);
@@ -19,7 +20,7 @@ function Page() {
 
     return (
         <main className="bg-gray-300 flex flex-col">
-            <Badge onBadge={ handleBadge } open={openBadge} />
+            <Badge animate={animate} onBadge={ handleBadge } open={openBadge} />
             <OpenMenu onBadge={ handleBadge } onClick={ handleMenu } open={openMenu} />
             <TopMenu onClick={ handleMenu } />
             <YouDashboard />
