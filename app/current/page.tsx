@@ -8,6 +8,7 @@ import Badge from "../components/Badge";
 function Page() {
     const [openMenu, setOpenMenu] = useState(false);
     const [openBadge, setOpenBadge] = useState(false);
+    const [animate, setAnimate] = useState(false);
 
     const handleMenu = () => {
         setOpenMenu(!openMenu);
@@ -15,11 +16,16 @@ function Page() {
 
     const handleBadge = () => {
         setOpenBadge(!openBadge);
+        setAnimate(true);
+
+        setTimeout(() => {
+            setAnimate(false);
+        }, 500);
     }
 
     return (
         <main className="flex flex-col">
-            <Badge onBadge={ handleBadge } open={openBadge} />
+            <Badge animate={animate} onBadge={ handleBadge } open={openBadge} />
             <OpenMenu onBadge={ handleBadge } onClick={ handleMenu } open={openMenu} />
             <Menu onClick={ handleMenu } open={openMenu} text='ITINERARY' />
             <Tabs />
