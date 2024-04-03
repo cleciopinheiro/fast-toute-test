@@ -9,6 +9,7 @@ import Badge from "../components/Badge";
 function Page() {
     const [openMenu, setOpenMenu] = useState(false);
     const [openBadge, setOpenBadge] = useState(false);
+    const [animate, setAnimate] = useState(false);
 
     const handleMenu = () => {
         setOpenMenu(!openMenu);
@@ -20,7 +21,7 @@ function Page() {
 
     return (
         <main className="w-screen bg-gray-300">
-            <Badge onBadge={ handleBadge } open={openBadge} />
+            <Badge animate={animate}  onBadge={ handleBadge } open={openBadge} />
             <OpenMenu onBadge={ handleBadge } onClick={ handleMenu } open={openMenu} />
             <TopMenu onClick={ handleMenu } />
             <Updates />
