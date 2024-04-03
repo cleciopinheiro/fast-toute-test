@@ -9,7 +9,7 @@ const menuModal = [
     },
     {
         title: "Pick up",
-        url: '/pickup',
+        url: '/current',
     },
     {
         title: "Updates",
@@ -17,11 +17,11 @@ const menuModal = [
     },
     {
         title: "Schedule",
-        url: '/schedule',
+        url: '/current',
     },
     {
         title: "Offers",
-        url: '/offers',
+        url: '/current',
     },
     {
         title: "Your Dashboard",
@@ -29,23 +29,23 @@ const menuModal = [
     },
     {
         title: "Learnig Portal",
-        url: '/learning',
+        url: '/current',
     },
     {
         title: "Calendar",
-        url: '/calendar',
+        url: '/current',
     },
     {
         title: "Earnings",
-        url: '/earnings',
+        url: '/current',
     },
     {
         title: "Feedback",
-        url: '/feedback',
+        url: '/current',
     },
     {
         title: "Settings",
-        url: '/settings',
+        url: '/current',
     },
 ]
 
