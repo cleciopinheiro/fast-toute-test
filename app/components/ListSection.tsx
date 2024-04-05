@@ -44,9 +44,10 @@ function ListSection({ id }: ListSectionProps) {
             case hour > 13 && hour < 19:    
                 return '22:00 Today';
             default:
-                return '00:00 Tomorrow';
+                return '00:00 Today';
         }
     };
+    const vencimento = calculateScheduled();
 
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('routeData') || '{}' as string);
@@ -62,7 +63,6 @@ function ListSection({ id }: ListSectionProps) {
         setCityName(cityName);
     }, [router]);    
 
-    const vencimento = calculateScheduled();
 
     function generateRandomNumber() {
         return Math.floor(1000 + Math.random() * 9000);
@@ -82,36 +82,34 @@ function ListSection({ id }: ListSectionProps) {
 
     return (
         <div id={id} className="flex flex-col w-full">
-            <div className="w-full h-[100px] bg-gray-200 relative flex text-sm">
-                <div className="relative ml-2 py-4">
-                    <span className="z-30 absolute left-[0.6rem] top-[1.2rem] text-[12px]">1</span>
+            <div className="w-full h-[130px] bg-gray-200 relative flex text-sm">
+                <div className="relative ml-2 py-8">
+                    <span className="z-30 absolute left-[0.6rem] top-[2.1rem] text-[12px]">1</span>
                     <FaCheckCircle size={10} className="absolute left-[1.2rem] text-[#07AB51]" />
-                    <Location w={26} h={26} fill="#9ca3af" />
-                    <div className="absolute left-3 top-0 border-l-2 border-[#9ca3af] h-full"></div>
+                    <Location w={26} h={26} fill="#c4c8d1" />
+                    <div className="absolute left-[13px] top-0 border-l-[1px] border-[#c4c8d1] h-full"></div>
                 </div>
-                <div className="relative text-gray-400 w-full font-semibold ml-4 flex flex-col justify-center">
+                <div className="relative text-gray-500 w-full font-semibold gap-2 ml-4 flex flex-col justify-center border-b border-[#c4c8d1] text-xs">
                     <p>Picked up at <span>{time}</span></p>
                     <p>6885 Commercial Dr.</p>
                     <p className="uppercase">{ Number(cityId) <= 39 ? 'SPRINGFIED' : 'ELKRIDGER' }</p>
-                    <hr className="absolute bottom-0 border border-[#9ca3af] w-full" />
                 </div>
             </div>
             {
                 arrayAddress(database.city).map((item, index) => (
-                    <div key={index} className="z-[-70] w-full h-[100px] bg-white relative flex text-sm">
-                        <div className="relative ml-2 py-4">
-                            <span className={ item.id > 9 ? "z-[100] absolute order-2 left-[0.4rem] top-[1.15rem] text-[12px]" : "z-[100] absolute order-2 left-[0.6rem] top-[1.15rem] text-[12px]"}>{item.id}</span>
+                    <div key={index} className="z-[-70] w-full h-[110px] relative flex text-sm">
+                        <div className="relative ml-2 py-8">
+                            <span className={ item.id > 9 ? "z-[100] absolute order-2 left-[0.4rem] top-[2.1rem] text-[12px]" : "z-[100] absolute order-2 left-[0.55rem] top-[2.1rem] text-[12px]"}>{item.id}</span>
                             <Location w={26} h={26} fill={ index === 0 ? "#07AB51" : "#464747" } />
-                            <div className="absolute z-[-50] left-3 top-0 border-l-2 border-[#9ca3af] h-full"></div>
+                            <div className="absolute z-[-50] left-[13px] top-0 border-l-[1px] border-[#c4c8d1] h-full"></div>
                         </div>
-                        <div className="relative text-[#464747] w-full font-semibold ml-4 flex flex-col justify-center">
+                        <div className="relative text-gray-600 w-full font-semibold ml-4 flex flex-col justify-center gap-2 border-b border-[#c4c8d1] text-xs">
                             <div className="flex items-center gap-1">
                                 <AiFillClockCircle className="text-[#42aaff]" />
                                 <span className="ml-1"># {database.letter}.{database.packageNumber}.OV • Scheduled 0:01 - {vencimento}</span>
                             </div>
                             <p>{item.address}</p>
                             <p className="uppercase">{cityName}</p>
-                            <hr className="absolute bottom-0 border border-[#9ca3af] w-full" />
                         </div>
                     </div>
                 ))
