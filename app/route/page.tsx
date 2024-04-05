@@ -38,6 +38,10 @@ function Page() {
       setIsDisabled(true);
     }
   }, [formData]);
+
+  const handleBack = () => {
+    router.push('/menu');
+  };
   
   const handleSubmit = () => {
     setLoading(true);
@@ -136,6 +140,13 @@ function Page() {
           onClick={() => handleSubmit()} 
           disabled={isDisabled}>
             {loading ? <Loading /> : 'Create Route'}
+        </button>
+        <button 
+          type="button"
+          className={'bg-red-600 text-white h-12 rounded-md font-semibold flex justify-center items-center'}
+          onClick={() => handleBack()} 
+          >
+          Back to Menu
         </button>
       </form>
     </div>

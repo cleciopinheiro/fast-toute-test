@@ -92,7 +92,7 @@ function ListSection({ id }: ListSectionProps) {
                 <div className="relative text-gray-400 w-full font-semibold ml-4 flex flex-col justify-center">
                     <p>Picked up at <span>{time}</span></p>
                     <p>6885 Commercial Dr.</p>
-                    <p className="uppercase">{ Number(cityId) <= 39 ? 'SPRINGFIED' : 'ELKRIGDER' }</p>
+                    <p className="uppercase">{ Number(cityId) <= 39 ? 'SPRINGFIED' : 'ELKRIDGER' }</p>
                     <hr className="absolute bottom-0 border border-[#9ca3af] w-full" />
                 </div>
             </div>

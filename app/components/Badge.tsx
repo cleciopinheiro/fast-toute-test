@@ -34,6 +34,10 @@ function Badge({ onBadge, open, animate}: BadgeProps) {
     }
     , []);
 
+    const handleCloseMenu = () => {
+        onBadge();
+    };
+
     return (
         <div className={
             open
@@ -74,7 +78,7 @@ function Badge({ onBadge, open, animate}: BadgeProps) {
                 <div
                     className="relative flex w-full bg-[var(--fourth)] rounded-t-xl justify-center items-center px-4">
                     <Amazon w={80} h={50} fill="#ffffff" />
-                    <IoIosArrowDown size={32} className="absolute right-4" />
+                    <IoIosArrowDown size={32} className="absolute right-4" onClick={() => handleCloseMenu()} />
                 </div>
                 <div className="flex flex-col items-center mt-4 gap-2">
                     <div style={{backgroundImage: `url(${image})` }} className='bg-cover bg-center bg-no-repeat w-[300px] h-[300px] rounded-full border-4 border-gray-300'></div>
