@@ -13,6 +13,7 @@ interface ListSectionProps {
 interface Data {
     letter: string;
     city: string;
+    station: string;
     packageNumber: string;
     packageQuantity: string;
 }
@@ -21,10 +22,12 @@ function ListSection({ id }: ListSectionProps) {
     const [time, setTime] = useState('');
     const [cityId, setCityId] = useState('' as string);
     const [cityName, setCityName] = useState('' as string);
+    const [station, setStation] = useState('' as string);
     const router = useRouter();
     const [database, setDatabase] = useState<Data>({
         letter: '',
         city: '',
+        station: '',
         packageNumber: '',
         packageQuantity: '',
     });
@@ -54,6 +57,7 @@ function ListSection({ id }: ListSectionProps) {
         const time = JSON.parse(localStorage.getItem('time') || '{}');
         const cityId = JSON.parse(localStorage.getItem('cityId') || '{}');
         const cityName = JSON.parse(localStorage.getItem('cityName') || '{}');
+        const station = JSON.parse(localStorage.getItem('station') || '{}');
         if (!data) {
             router.push('/route');
         }
@@ -61,6 +65,7 @@ function ListSection({ id }: ListSectionProps) {
         setDatabase(data);
         setCityId(cityId);
         setCityName(cityName);
+        setStation(station);
     }, [router]);    
 
 
@@ -92,7 +97,7 @@ function ListSection({ id }: ListSectionProps) {
                 <div className="relative text-gray-500 w-full font-semibold gap-2 ml-4 flex flex-col justify-center border-b border-[#c4c8d1] text-xs">
                     <p>Picked up at <span>{time}</span></p>
                     <p>6885 Commercial Dr.</p>
-                    <p className="uppercase">{ Number(cityId) <= 39 ? 'SPRINGFIED' : 'ELKRIDGER' }</p>
+                    <p className="uppercase">{station}</p>
                 </div>
             </div>
             {

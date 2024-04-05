@@ -1,4 +1,4 @@
-const city = [
+const springfield = [
   { name: 'Alexandria', id: 1 },
   { name: 'Arlington', id: 2 },
   { name: 'Annandale', id: 3 },
@@ -38,23 +38,30 @@ const city = [
   { name: 'Vienna', id: 37 },
   { name: 'Woodbridge', id: 38 },
   { name: 'Washington', id: 39 },
-  
-  { name: 'Annapolis', id: 40 }, // Saida de Elkridge
-  { name: 'Baltimore', id: 41 },
-  { name: 'Beltsville', id: 42 },
-  { name: 'Catonsville', id: 43 },
-  { name: 'Columbia', id: 44 },
-  { name: 'College Park', id: 45 },
-  { name: 'Edgewood', id: 46 },
-  { name: 'Elkrigde', id: 47 },
-  { name: 'Frederick', id: 48 },
-  { name: 'Greenbelt', id: 49 },
-  { name: 'Hanover', id: 50 },
-  { name: 'Laurel', id: 51 },
-  { name: 'Parksville', id: 52 },
 ];
 
-export default city;
+const elkrigde = [
+  { name: 'Annapolis', id: 1 },
+  { name: 'Baltimore', id: 2 },
+  { name: 'Beltsville', id: 3 },
+  { name: 'Catonsville', id: 4 },
+  { name: 'Columbia', id: 5 },
+  { name: 'College Park', id: 6 },
+  { name: 'Edgewood', id: 7 },
+  { name: 'Elkrigde', id: 8 },
+  { name: 'Frederick', id: 9 },
+  { name: 'Greenbelt', id: 10 },
+  { name: 'Hanover', id: 11 },
+  { name: 'Laurel', id: 12 },
+  { name: 'Parksville', id: 13 },
+];
+
+const city = [
+  { name: 'Springfield', id: 1 },
+  { name: 'Elkridge', id: 2 },
+];
+
+export { springfield, elkrigde, city };
 
 // Caso a cidade de saida tenha o id menor ou igual a 38, a cidade picked up será Springfield, caso contrário, a cidade picked up será Elkridge
 
