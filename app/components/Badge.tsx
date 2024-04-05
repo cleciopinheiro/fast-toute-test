@@ -63,7 +63,7 @@ function Badge({ onBadge, open, animate}: BadgeProps) {
             animate={{ y: 0, transition: { duration: 1, ease: "easeInOut" }}}
             dragConstraints={{ top: 0, bottom: 0}}
             onDragEnd={(e, { offset, velocity }) => {
-                if ( offset.y >  window.innerHeight * 0.7) {
+                if ( offset.y >  window.innerHeight * 0.1) {
                     setDisableAxis(false);
                     onBadge();
                 }
