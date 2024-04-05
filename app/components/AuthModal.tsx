@@ -39,12 +39,18 @@ const AuthModal = () => {
   }
 
   const handleSubmit = () => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-      router.push('/menu');
-      onClose();
-    }, 1000);
+    const { email, password } = formData;
+
+    if (email === 'teste@teste.com' && password === '123456') {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        router.push('/menu');
+        onClose();
+      }, 500);
+    } else {
+      alert('Login or password incorrect!');
+    }
   };
 
   return (
