@@ -5,6 +5,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import useProvider from "../provider/Provider";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import adress from '../constants/address';
 
 interface ListSectionProps {
     id: string;
@@ -75,11 +76,12 @@ function ListSection({ id }: ListSectionProps) {
 
     const arrayAddress = (address: string) => {
         const quantity = Number(database.packageQuantity);
+
         const array = [];
         for (let i = 0; i < quantity; i++) {
             array.push({
                 id: i + 2,
-                address: `${generateRandomNumber()} HEMING AVE`,
+                address: `${adress[i].number} ${adress[i].street}`,
             });
         }
         return array;
