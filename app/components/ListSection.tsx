@@ -5,7 +5,7 @@ import { FaCheckCircle } from "react-icons/fa";
 import useProvider from "../provider/Provider";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import adress from '../constants/address';
+import {springfieldAdress, baltimoreAdress} from '../constants/address';
 
 interface ListSectionProps {
     id: string;
@@ -74,12 +74,23 @@ function ListSection({ id }: ListSectionProps) {
         const quantity = Number(database.packageQuantity);
 
         const array = [];
-        for (let i = 0; i < quantity; i++) {
-            array.push({
-                id: i + 2,
-                address: `${adress[i].number} ${adress[i].street}`,
-            });
-        }
+        if (database.station === 'Springfield') {
+            for (let i = 0; i < quantity; i++) {
+                array.push({
+                    id: i + 2,
+                    address: `${springfieldAdress[i].number} ${springfieldAdress[i].street}`,
+                });
+            }
+        };
+
+        if (database.station === 'Elkridge') {
+            for (let i = 0; i < quantity; i++) {
+                array.push({
+                    id: i + 2,
+                    address: `${baltimoreAdress[i].number} ${baltimoreAdress[i].street}`,
+                });
+            }
+        };
         return array;
     };
 

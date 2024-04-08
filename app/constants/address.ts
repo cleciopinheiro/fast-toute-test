@@ -1,4 +1,4 @@
-const adress = [
+const springfieldAdress = [
   { number: 5202, street: 'Heming Ave' },
   { number: 7419, street: 'Gresham St' },
   { number: 7304, street: 'Elgar St' },
@@ -31,4 +31,37 @@ const adress = [
   { number: 7202, street: 'Cattlett St' },
 ];
 
-export default adress;
+const baltimoreAdress = [
+  { number: 2003, street: 'E North Ave' },
+  { number: 1827, street: 'N Washington St' },
+  { number: 1823, street: 'N Chapel St' },
+  { number: 1723, street: 'N Durham St' },
+  { number: 1707, street: 'E Lanvale St' },
+  { number: 1625, street: 'N Broadway' },
+  { number: 1627, street: 'E Lafayette Ave' },
+  { number: 1745, street: 'N Bond St' },
+  { number: 1332, street: 'Aisquith St' },
+  { number: 538, street: ' E Preston St' },
+  { number: 1115, street: 'Hunter St' },
+  { number: 932, street: 'N Charles St' },
+  { number: 8, street: 'W Read St' },
+  { number: 303, street: 'Scott St' },
+  { number: 770, street: 'Washington Blvd' },
+  { number: 1631, street: 'Clarkson St'},
+  { number: 8, street: 'W Heath St' },
+  { number: 1706, street: 'Charles St' },
+  { number: 3, street: 'E Heath St' },
+  { number: 1726, street: 'Patapsco St' },
+  { number: 45, street: 'E Barney St' },
+  { number: 1815, street: 'Marshall St' },
+  { number: 1833, street: 'Light St' },
+  { number: 1541, street: 'Covington St' },
+  { number: 1611, street: 'Belt St' },
+  { number: 1620, street: 'Webster St' },
+  { number: 900, street: 'E Fort Ave Garage' },
+  { number: 1439, street: 'Lowman St' },
+  { number: 1420, street: 'Decatur St' },
+  { number: 1415, street: 'Cooksie St' },
+];
+
+export {springfieldAdress, baltimoreAdress};
