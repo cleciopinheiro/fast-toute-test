@@ -70,10 +70,6 @@ function ListSection({ id }: ListSectionProps) {
     }, [router]);    
 
 
-    function generateRandomNumber() {
-        return Math.floor(1000 + Math.random() * 9000);
-      }
-
     const arrayAddress = (address: string) => {
         const quantity = Number(database.packageQuantity);
 
