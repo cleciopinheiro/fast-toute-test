@@ -21,7 +21,7 @@ interface Data {
 
 function ListSection({ id }: ListSectionProps) {
     const [time, setTime] = useState('');
-    const [cityId, setCityId] = useState('' as string);
+    // const [cityId, setCityId] = useState('' as string);
     const [cityName, setCityName] = useState('' as string);
     const [station, setStation] = useState('' as string);
     const router = useRouter();
@@ -56,7 +56,7 @@ function ListSection({ id }: ListSectionProps) {
     useEffect(() => {
         const data = JSON.parse(localStorage.getItem('routeData') || '{}' as string);
         const time = JSON.parse(localStorage.getItem('time') || '{}');
-        const cityId = JSON.parse(localStorage.getItem('cityId') || '{}');
+        // const cityId = JSON.parse(localStorage.getItem('cityId') || '{}');
         const cityName = JSON.parse(localStorage.getItem('cityName') || '{}');
         const station = JSON.parse(localStorage.getItem('station') || '{}');
         if (!data) {
@@ -64,7 +64,7 @@ function ListSection({ id }: ListSectionProps) {
         }
         setTime(time);
         setDatabase(data);
-        setCityId(cityId);
+        // setCityId(cityId);
         setCityName(cityName);
         setStation(station);
     }, [router]);    
