@@ -53,7 +53,7 @@ function Page() {
       localStorage.setItem('routeData', JSON.stringify(formData));
       localStorage.setItem('time', JSON.stringify(hourAndMinutes));
       const cityId = formData.city.split(' ')[1];
-      const cityName = formData.city.split(' ')[0];
+      const cityName = formData.city;
       const station = formData.station;
       localStorage.setItem('cityName', JSON.stringify(cityName));
       localStorage.setItem('cityId', JSON.stringify(cityId));
@@ -111,7 +111,7 @@ function Page() {
               Select City
             </option>
             {springfield.map((item) => (
-              <option className="text-[12px]" value={item.name + ' ' + item.id} key={item.id}>
+              <option className="text-[12px]" value={item.name} key={item.id}>
                 {item.name}
               </option>
             ))}
@@ -129,7 +129,7 @@ function Page() {
               Select City
             </option>
             {elkrigde.map((item) => (
-              <option className="text-[12px]" value={item.name + ' ' + item.id} key={item.id}>
+              <option className="text-[12px]" value={item.name} key={item.id}>
                 {item.name}
               </option>
             ))}
